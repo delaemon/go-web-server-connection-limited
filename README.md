@@ -1,6 +1,9 @@
+
 #Default
 
 ```
+$ go-web-server-connection-limited go run server.go --port=8080
+
 $ httpd-2.4.17 ./support/ab -n 10000 -c 200 http://127.0.0.1:8080/
 This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -59,6 +62,8 @@ Percentage of the requests served within a certain time (ms)
 
 # Limited
 ```
+$ go-web-server-connection-limited go run server.go --port=8080 --limit 100
+
 $ httpd-2.4.17 ./support/ab -n 10000 -c 200 http://127.0.0.1:8080/
 This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
