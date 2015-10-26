@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io"
 	"log"
@@ -57,8 +58,19 @@ func Limited(port, limit string) {
 }
 
 func Server() {
-	//Default(os.Args[1])
-	Limited(os.Args[1], os.Args[2])
+	var port string
+	var limit string
+	f := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+	f.StringVar(&port, "port", "8080", "listen port")
+	f.StringVar(&limit, "limit", "10", "concurrent limit")
+	f.Parse(os.Args[1:])
+	for 0 < f.NArg() {
+		f.Parse(f.Args()[1:])
+	}
+	fmt.Println(port)
+	fmt.Println(limit)
+	//Default(port)
+	Limited(port, limit)
 }
 
 func main() {
