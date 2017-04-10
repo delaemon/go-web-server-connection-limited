@@ -16,8 +16,8 @@ import (
 
 func Default(port string) {
 	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
-		w.WriteHeader(http.StatusOK)
 		w.Header().Set("Content-Type", "text/plain")
+		w.WriteHeader(http.StatusOK)
 		time.Sleep(time.Millisecond * 500) // for watch netstat
 		io.WriteString(w, "Default")
 	})
@@ -34,8 +34,8 @@ func Default(port string) {
 
 func Limited(port, limit string) {
 	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
-		w.WriteHeader(http.StatusOK)
 		w.Header().Set("Content-Type", "text/plain")
+		w.WriteHeader(http.StatusOK)
 		time.Sleep(time.Millisecond * 500) // for watch netstat
 		io.WriteString(w, "Limited")
 	})
